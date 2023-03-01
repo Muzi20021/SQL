@@ -1,0 +1,17 @@
+1.SELECT pr_imie, pr_nazwisko FROM Pracownicy WHERE pr_imie OR pr_nazwisko LIKE ‘%J%’ AND pr_data_ur  BETWEEN
+ 01-01-1970 AND 31-12-1980 ORDER DESC BY 5;
+2.SELECT p.pr_imie, p.pr_nazwisko, w.wyr_pr_nr FROM Pracownicy p JOIN Wyroznieni w 
+on p.pr_nr=w.wyr_pr_nr GROUP BY p.pr_imie, p.pr_nazwisko; 
+3.SELECT DISTINCT pr_miejscowosc_zam imie SUM(pr_miejscowosc_zam) as ilosc_miejscowosci FROM Pracownicy;
+4.SELECT p.pr_nazwisko, s.ilosc FROM Pracownicy p JOIN Sprzedaz s 
+on p.pr_nr=s.spr_pr_nr WHERE s.spr_ilosc = 0 GROUP BY p.pr_nazwisko, p.pr_nazwisko;
+5.SELECT  o.odd_region, count(odd_region) as liczba_w_regionie FROM Pracownicy p JOIN Odzialy o 
+on p.pr_nr=o.odd_nr_rozlicz WHERE s.spr_ilosc = 0 group by o.odd_region, liczba_w_regionie;
+6.SELECT p.pr_imie, p.pr_nazwisko FROM Pracownicy p JOIN Sprzedaz s 
+on p.pr_nr=s.spr_pr_nr WHERE s.spr_ilosc > AVG(s.spr_ilosc) GROUP BY p.pr_imie, p.pr_nazwisko
+7.SELECT  o.odd_miejscowosc, count(odd_region) as liczba_w_regionie FROM Pracownicy p JOIN Odzialy o 
+on p.pr_nr=o.odd_nr_rozlicz group by o.odd_miejscowsc, liczba_w_miejscowosci;
+8.SELECT p.pr_nazwisko, count(s.spr_ilosc) FROM Pracownicy p JOIN Sprzedaz s 
+on p.pr_nr=s.spr_pr_nr GROUP BY p.pr_nazwisko;
+9.SELECT p.pr_nazwisko, count(s.spr_ilosc) FROM Pracownicy p JOIN Produkty pr 
+on p.pr_nr=pr.prod_nr  GROUP BY p.pr_nazwisko;
